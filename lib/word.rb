@@ -20,4 +20,9 @@ class Word
   def ==(word_to_compare)
     self.str() == word_to_compare.str()
   end
+
+  def self.clear()
+    @@words = {}
+    @@total_rows = 0
+  end
 end
