@@ -17,4 +17,7 @@ class Word
     @@words[self.id] = Word.new(self.str, self.id)
   end
 
+  def ==(word_to_compare)
+    self.str() == word_to_compare.str()
+  end
 end
