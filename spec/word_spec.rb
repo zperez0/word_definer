@@ -1,10 +1,12 @@
 require('rspec')
 require('word')
+require('definition')
 
 describe('Word') do
 
   before(:each) do
     Word.clear()
+    Define.clear()
   end
 
   describe('#save') do
@@ -76,11 +78,11 @@ describe('Word') do
     it("returns a word's definitions") do
       word = Word.new("flying bison", nil)
       word.save()
-      definition = Define.new("homie", word.id, nil)
-      definition.save()
-      definition2 = Define.new("sky bison", word.id, nil)
-      definition2.save()
-      expect(word.definitions).to(eq([definition, definition2]))
+      def1 = Define.new("homie", word.id, nil)
+      def1.save()
+      def2 = Define.new("sky bison", word.id, nil)
+      def2.save()
+      expect(word.definitions).to(eq([def1, def2]))
     end
   end
 end
