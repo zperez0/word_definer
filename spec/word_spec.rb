@@ -49,7 +49,7 @@ describe('Word') do
       word.save()
       word2 = Word.new("air bender", nil)
       word2.save()
-      expect(word.find(word.id)).to(eq(word))
+      expect(Word.find(word.id)).to(eq(word))
     end
   end
 end
