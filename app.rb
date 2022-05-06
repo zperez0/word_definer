@@ -7,6 +7,7 @@ also_reload('lib/**/*.rb')
 
 # home page
 get('/') do
+  # binding.pry
   redirect to('/words')
 end
 
@@ -30,13 +31,13 @@ post('/words') do
 end
 
 # show specfic word based on id
-get('words/:id') do
+get('/words/:id') do
   @word = Word.find(params[:id].to_i())
   erb(:word)
 end
 
 # form for updating a word
-get('words/:id/edit') do
+get('/words/:id/edit') do
   @word = Word.find(params[:id].to_i())
   erb(:edit_word)
 end
@@ -49,7 +50,7 @@ patch('/words/:id') do
 end
 
 # delete word
-delete('words/:id') do
+delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.delete()
   redirect to('/albums')
