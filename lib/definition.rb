@@ -15,11 +15,11 @@ class Define
     (self.str() == def_to_compare.str()) && (self.word_id() == def_to_compare.word_id())
   end
 
-  def self.all
+  def self.all()
     @@definitions.values
   end
 
-  def save
+  def save()
     @@definitions[self.id] = Define.new(self.str, self.word_id, self.id)
   end
 
@@ -33,11 +33,11 @@ class Define
     @@definitions[self.id] = Define.new(self.str, self.word_id, self.id)
   end
 
-  def delete
+  def delete()
     @@definitions.delete(self.id)
   end
 
-  def self.clear
+  def self.clear()
     @@definitions = {}
   end
 
@@ -49,5 +49,9 @@ class Define
       end
     end
     definitions
+  end
+
+  def word()
+    Word.find(self.word_id)
   end
 end
