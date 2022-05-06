@@ -61,4 +61,15 @@ describe('Word') do
       expect(word.str).to(eq("polar dog"))
     end
   end
+
+  describe('#delete') do
+    it("deletes an album by id") do
+      word = Word.new("flying bison", nil)
+      word.save()
+      word2 = Word.new("water bender", nil)
+      word2.save()
+      word.delete()
+      expect(Word.all).to(eq([word2]))
+    end
+  end
 end
