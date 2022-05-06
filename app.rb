@@ -54,3 +54,25 @@ delete('words/:id') do
   @word.delete()
   redirect to('/albums')
 end
+
+# gets detail for definitions
+get('/words/:id/definitions/:defs_id') do
+  @definition = Define.find(params[:defs_id].to_i())
+  erb(:definition)
+end
+
+# post a new def. route to the word
+post('/words/:id/definitions') do
+  @word = Word.find(params[:id].to_i())
+  definition = Define.new(params[:def_str], @word.id, nil)
+  definition.save()
+  erb(:word)
+end
+
+# edit & route back to word view
+patch('/words/:id/definitions/:def_id') do
+  definition = Define.find(params[:def_id].to_i())
+  definition.delete()
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
+end
