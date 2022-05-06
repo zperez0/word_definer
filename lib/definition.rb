@@ -2,7 +2,7 @@ class Define
   attr_reader :id
   attr_accessor :str, :word_id
 
-  @@defs = {}
+  @@definitions = {}
   @@total_rows = 0
 
   def initialize(str, word_id, id)
@@ -16,28 +16,38 @@ class Define
   end
 
   def self.all
-    @@defs.values
+    @@definitions.values
   end
 
   def save
-    @@defs[self.id] = Define.new(self.str, self.word_id, self.id)
+    @@definitions[self.id] = Define.new(self.str, self.word_id, self.id)
   end
 
   def self.find(id)
-    @@defs[id]
+    @@definitions[id]
   end
 
   def update(str, word_id)
     self.str = str
     self.word_id = word_id
-    @@defs[self.id] = Define.new(self.str, self.word_id, self.id)
+    @@definitions[self.id] = Define.new(self.str, self.word_id, self.id)
   end
 
   def delete
-    @@defs.delete(self.id)
+    @@definitions.delete(self.id)
   end
 
   def self.clear
-    @@defs = {}
+    @@definitions = {}
+  end
+
+  def self.find_by_word(wrd_id)
+    definitions = []
+    @@definitions.values.each do |defs|
+      if defs.word_id == wrd_id
+        definitions.push(defs)
+      end
+    end
+    definitions
   end
 end
