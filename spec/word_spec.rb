@@ -7,7 +7,6 @@ describe('Word') do
     Word.clear()
   end
 
-
   describe('#save') do
     it("saves a word") do
       word = Word.new("earth bender", nil)
