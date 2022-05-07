@@ -1,5 +1,14 @@
-<h1>Word Definer</h2>
+<div class="container">
+  <div class="jumbotron">
+  <h1>Word Definer 🤖 </h1>
+  <p>I'm your friendly neighborhood Robo Word Definer 3000<p>
+  </div>
+</div>
 
+<p>Let's play a game!<p>
+<p>- Add a word and definition</p>
+<p>- You can edit or delete a word and definition</p>
+<br>
 <h3>Available Words</h3>
 
 <% if @words.any? %>
@@ -9,7 +18,7 @@
     <% end %>
   </ul>
   <% else %>
-    <p>There are currently no words to display</p>
+    <p>There are currently no words.</p>
   <% end %>
-
+<br>
   <a href="/words/new">Add a new word</a>
