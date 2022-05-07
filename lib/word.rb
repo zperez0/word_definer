@@ -41,4 +41,10 @@ class Word
   def definitions()
     Define.find_by_word(self.id)
   end
+
+  def self.search(user_str)
+    search_results = []
+    wrd = @@words.find { |word| word[1].str.downcase == user_str.downcase }
+    search_results.push(wrd[1])
+  end
 end
