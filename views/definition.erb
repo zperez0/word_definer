@@ -1,5 +1,11 @@
-<h2>Word: <%= @definition.word.str %></h3>
-<h3>Definition: <%= @definition.str %></h2>
+<div class="container">
+  <div class="jumbotron">
+    <h2><%= @definition.word.str %></h3>
+  </div>
+</div>
+
+<h3>Definition: <%= @definition.str %></h3>
+<br>
 
 <form action="/words/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
@@ -9,9 +15,11 @@
 
   <button type="submit">Update</button>
 </form>
+<br>
 
 <form action="/words/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
   <input name="_method" type="hidden" value="delete">
+    <h4>Do you want to delete?</h4>
 
   <button type="submit">Delete</button>
 </form>
