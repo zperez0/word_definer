@@ -85,4 +85,14 @@ describe('Word') do
       expect(word.definitions).to(eq([def1, def2]))
     end
   end
+
+  describe('.search') do
+    it("searches for a preexisting word") do
+      word = Word.new("flying bison", nil)
+      word.save()
+      word2 = Word.new("water bender", nil)
+      word2.save()
+      expect(Word.search("flying bison")).to(eq([word]))
+    end
+  end
 end
