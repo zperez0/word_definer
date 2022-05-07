@@ -30,7 +30,7 @@ post('/words') do
   redirect('/words')
 end
 
-# show specfic word based on id
+# show specfic word based on id -BREAKING-
 get('/words/:id') do
   @word = Word.find(params[:id].to_i())
   erb(:word)
@@ -53,12 +53,12 @@ end
 delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.delete()
-  redirect to('/albums')
+  redirect to('/words')
 end
 
 # gets detail for definitions
-get('/words/:id/definitions/:defs_id') do
-  @definition = Define.find(params[:defs_id].to_i())
+get('/words/:id/definitions/:def_id') do
+  @definition = Define.find(params[:def_id].to_i())
   erb(:definition)
 end
 
@@ -72,6 +72,14 @@ end
 
 # edit & route back to word view
 patch('/words/:id/definitions/:def_id') do
+  @word = Word.find(params[:id].to_i())
+  definition = Define.find(params[:def_id].to_i())
+  definition.update(params[:str], @word.id)
+  erb(:word)
+end
+
+# delete
+delete('/words/:id/definitions/:def_id') do
   definition = Define.find(params[:def_id].to_i())
   definition.delete()
   @word = Word.find(params[:id].to_i())
