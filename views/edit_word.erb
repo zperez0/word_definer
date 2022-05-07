@@ -14,13 +14,12 @@
 </form>
 <br>
 
-<p><a href="/words">Return to word list</a><p>
-<br>
 
 <form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
-  
   <h4>Do you want to delete?</h4>
 
   <button type="submit">Delete</button>
 </form>
+<br>
+<p><a href="/words">Return to word list</a><p>
