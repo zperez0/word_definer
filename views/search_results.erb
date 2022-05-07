@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2>Search Results</h2>
+  </div>
+</div>
+
+<% if @words %>
+  <ul>
+  <% @words.each do |word| %>
+    <li><a href="/words/<%= word.id %>"><%= word.str %></a></li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no words to display.</p>
+<% end %>
