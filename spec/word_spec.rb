@@ -1,15 +1,14 @@
-require('rspec')
-require('word')
-require('definition')
+require("rspec")
+require("word")
+require("definition")
 
-describe('Word') do
-
+describe("Word") do
   before(:each) do
     Word.clear()
     Define.clear()
   end
 
-  describe('#save') do
+  describe("#save") do
     it("saves a word") do
       word = Word.new("earth bender", nil)
       word.save()
@@ -19,21 +18,21 @@ describe('Word') do
     end
   end
 
-  describe('.all') do
+  describe(".all") do
     it("returns an empty array when there are no words") do
-    expect(Word.all).to(eq([]))
+      expect(Word.all).to(eq([]))
     end
   end
 
-  describe('#==') do
+  describe("#==") do
     it("is the same word if it has the same attributes as another word") do
-    word = Word.new("earth bender", nil)
-    word2 = Word.new("earth bender", nil)
-    expect(word).to(eq(word2))
+      word = Word.new("earth bender", nil)
+      word2 = Word.new("earth bender", nil)
+      expect(word).to(eq(word2))
     end
   end
 
-  describe('.clear') do
+  describe(".clear") do
     it("clears all words") do
       word = Word.new("flying bison", nil)
       word.save()
@@ -44,7 +43,7 @@ describe('Word') do
     end
   end
 
-  describe('.find') do
+  describe(".find") do
     it("finds a word by id") do
       word = Word.new("flying bison", nil)
       word.save()
@@ -54,7 +53,7 @@ describe('Word') do
     end
   end
 
-  describe('#update') do
+  describe("#update") do
     it("updates a word by id") do
       word = Word.new("flying bison", nil)
       word.save()
@@ -63,7 +62,7 @@ describe('Word') do
     end
   end
 
-  describe('#delete') do
+  describe("#delete") do
     it("deletes an album by id") do
       word = Word.new("flying bison", nil)
       word.save()
@@ -74,7 +73,7 @@ describe('Word') do
     end
   end
 
-  describe('#definitions') do
+  describe("#definitions") do
     it("returns a word's definitions") do
       word = Word.new("flying bison", nil)
       word.save()
@@ -86,7 +85,7 @@ describe('Word') do
     end
   end
 
-  describe('.search') do
+  describe(".search") do
     it("searches for a preexisting word") do
       word = Word.new("flying bison", nil)
       word.save()
