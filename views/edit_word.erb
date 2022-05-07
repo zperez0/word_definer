@@ -7,13 +7,13 @@
   <input id="str" name="str" type="text">
 
   <button type="submit">Update</button>
-  </form>
+</form>
 
 
 <p><a href="/words">Return to word list</a><p>
 
-<form action="/words/<% @word.id() %>" method="post">
+<form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
   
-  <button type="submit">Delete word</button>
+  <button type="submit">Delete</button>
 </form>
