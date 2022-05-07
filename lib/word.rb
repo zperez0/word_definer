@@ -1,5 +1,6 @@
 class Word
   attr_reader :str, :id
+  attr_accessor :str
 
   @@words = {}
   @@total_rows = 0
@@ -44,7 +45,8 @@ class Word
 
   def self.search(user_str)
     search_results = []
-    wrd = @@words.find { |word| word[1].str.downcase == user_str.downcase }
+    if wrd = @@words.find { |word| word[1].str.downcase == user_str.downcase }
     search_results.push(wrd[1])
+    end
   end
 end
