@@ -1,10 +1,9 @@
-require('rspec')
-require('definition')
-require('word')
-require('pry')
+require("rspec")
+require("definition")
+require("word")
+require("pry")
 
-describe('Define') do
-
+describe("Define") do
   before(:each) do
     Word.clear()
     Define.clear()
@@ -12,7 +11,7 @@ describe('Define') do
     @word.save()
   end
 
-  describe('#==') do
+  describe("#==") do
     it("is the same definition if it has the same attributes as another definition") do
       def1 = Define.new("homie", @word.id, nil)
       def2 = Define.new("homie", @word.id, nil)
@@ -20,7 +19,7 @@ describe('Define') do
     end
   end
 
-  describe('.all') do
+  describe(".all") do
     it("returns an array of definitions") do
       def1 = Define.new("flying bison", @word.id, nil)
       def1.save()
@@ -30,7 +29,7 @@ describe('Define') do
     end
   end
 
-  describe('.clear') do
+  describe(".clear") do
     it("clears all definitions") do
       def1 = Define.new("air bison", @word.id, nil)
       def1.save()
@@ -41,7 +40,7 @@ describe('Define') do
     end
   end
 
-  describe('#save') do
+  describe("#save") do
     it("saves a definition") do
       def1 = Define.new("homie for life", @word.id, nil)
       def1.save()
@@ -49,7 +48,7 @@ describe('Define') do
     end
   end
 
-  describe('.find') do
+  describe(".find") do
     it("finds a definition by id") do
       def1 = Define.new("homie for life", @word.id, nil)
       def1.save()
@@ -59,7 +58,7 @@ describe('Define') do
     end
   end
 
-  describe('#update') do
+  describe("#update") do
     it("updates a definition by id") do
       def1 = Define.new("air bison", @word.id, nil)
       def1.save()
@@ -68,7 +67,7 @@ describe('Define') do
     end
   end
 
-  describe('#delete') do
+  describe("#delete") do
     it("deletes a definition by id") do
       def1 = Define.new("air bison", @word.id, nil)
       def1.save()
@@ -79,7 +78,7 @@ describe('Define') do
     end
   end
 
-  describe('.find_by_word') do
+  describe(".find_by_word") do
     it("finds a definition for a word") do
       word2 = Word.new("air bender", nil)
       word2.save()
@@ -91,7 +90,7 @@ describe('Define') do
     end
   end
 
-  describe('#word') do
+  describe("#word") do
     it("finds the word a definition belongs to") do
       def1 = Define.new("homie for life", @word.id, nil)
       def1.save()
