@@ -1,4 +1,8 @@
-<h2>Word: <%= @word.str %></h2>
+<div class="container">
+  <div class="jumbotron">
+    <h2><%= @word.str %></h2>
+  </div>
+</div>
 
 <h3>Definition:</h3>
 
@@ -9,10 +13,9 @@
       <% end %>
     </ul>
   <% else %>
-    <p>There are no definitions listed for this word yet.</p>
+    <p>There are no definitions.</p>
   <% end %>
-
-<h4>Add a definition:</h4>
+<br>
 
 <form action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
@@ -21,6 +24,7 @@
   </div>
   <button type="submit" class="btn">Add</button>
 </form>
+<br>
 
 <p><a href="/words/<%= @word.id %>/edit">Edit word</a></p>
 <p><a href="/words">Return to word list</a><p>
