@@ -2,7 +2,7 @@
 
 #### By _**Z Perez**_
 
-A web application for kids that allows a user to add words and create definitions to those words.
+A web application for kids that allows a user to add words and create definitions for those words.
 
 ## Technologies Used
 
